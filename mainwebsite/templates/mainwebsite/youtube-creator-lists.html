@@ -1,0 +1,250 @@
+{% extends "mainwebsite/layout.html" %}
+{% block body %}
+
+
+<div class="container">
+	<div class="row" style="margin-top: 30px;margin-bottom: 30px">
+
+		<!-- <div class="col-lg-4 col-md-12 rightsidebibek">
+			<div class="container">
+
+			 
+
+				<h5>Sort By</h5>
+				 
+					<div class="custom-control custom-radio">
+					  <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios">
+					  <label class="custom-control-label" for="defaultGroupExample3">Subscribers</label>
+					</div>
+					 
+					<div class="custom-control custom-radio">
+					  <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios">
+					  <label class="custom-control-label" for="defaultGroupExample3">View</label>
+					</div>
+				 
+
+						<hr>
+
+					<h5>Platfrom</h5>
+				 
+					<div class="custom-control custom-radio">
+					  <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios">
+					  <label class="custom-control-label" for="defaultGroupExample1">Youtube</label>
+					</div>
+
+					 
+					<div class="custom-control custom-radio">
+					  <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios" checked>
+					  <label class="custom-control-label" for="defaultGroupExample2">Instagrame</label>
+					</div>
+
+					 
+					<div class="custom-control custom-radio">
+					  <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios">
+					  <label class="custom-control-label" for="defaultGroupExample3">Tiktok</label>
+					</div>
+					 
+
+					<hr>
+
+					<h5>PRIMARY AUDIENCE GENDER</h5>
+				
+					<div class="custom-control custom-radio">
+					  <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios">
+					  <label class="custom-control-label" for="defaultGroupExample1">Male</label>
+					</div>
+
+					
+					<div class="custom-control custom-radio">
+					  <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios" checked>
+					  <label class="custom-control-label" for="defaultGroupExample2">Female</label>
+					</div>
+
+					
+					<div class="custom-control custom-radio">
+					  <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios">
+					  <label class="custom-control-label" for="defaultGroupExample3">Gender</label>
+					</div>
+					
+
+				<hr>
+					<h5>Traget Country</h5>
+
+					<select class="form-control formshadow">
+						<option>India</option>
+						<option>USA</option>
+						<option>Caneda</option>
+					</select>
+
+
+					<hr>
+
+					<h5>Audience Reach</h5>
+				
+					<div class="custom-control custom-radio">
+					  <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios">
+					  <label class="custom-control-label" for="defaultGroupExample1">Option 1</label>
+					</div>
+
+					
+					<div class="custom-control custom-radio">
+					  <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios" checked>
+					  <label class="custom-control-label" for="defaultGroupExample2">Option 2</label>
+					</div>
+
+				
+					<div class="custom-control custom-radio">
+					  <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios">
+					  <label class="custom-control-label" for="defaultGroupExample3">Option 3</label>
+					</div>
+					
+
+
+
+					<hr>
+
+					<h5>Channel Or Category</h5>
+				
+					<div class="custom-control custom-radio">
+					  <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios">
+					  <label class="custom-control-label" for="defaultGroupExample1">Option 1</label>
+					</div>
+
+				
+					<div class="custom-control custom-radio">
+					  <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios" checked>
+					  <label class="custom-control-label" for="defaultGroupExample2">Option 2</label>
+					</div>
+
+					
+					<div class="custom-control custom-radio">
+					  <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios">
+					  <label class="custom-control-label" for="defaultGroupExample3">Option 3</label>
+					</div>
+					
+
+
+
+
+
+			</div>
+		</div>
+ -->
+
+		<div class="col-lg-12 col-md-12">
+			<div class="row">
+
+				{% for i in channels %}
+
+				<div class="col-lg-4 col-md-12">
+					<div class="card bibekcreatorcard">
+						<img src="{{i.youtube_profileurl}}" style="width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+">
+						<h5 class="cretorlistname">{{i.youtube_channelname}}</h5>
+						<!-- <p class="cretorlistcat">( Beauty & Fashion) </p> -->
+						<hr>
+						<div class="spesifications">
+							<div class="row">
+								<div class="col-lg-6">
+								<p>Channels Offered</p>
+								</div>
+								<div class="col-lg-6">
+									<p style="text-align: right;"><b>Youtube</b></p>
+								</div>
+							</div>
+							<hr style="margin: 0;margin-bottom: 7px">
+							<div class="row">
+								<div class="col-lg-6">
+								<p>Total Subscriber</p>
+								</div>
+								<div class="col-lg-6">
+									<p style="text-align: right;"><b>{{i.youtube_subscribercount}}</b></p>
+								</div>
+							</div>
+							<hr style="margin: 0;margin-bottom: 7px">
+							<div class="row">
+								<div class="col-lg-6">
+								<p>Total Video</p>
+								</div>
+								<div class="col-lg-6">
+									<p style="text-align: right;"><b>{{i.youtube_videocount}}</b></p>
+								</div>
+							</div>
+							<hr style="margin: 0;margin-bottom: 7px">
+							<div class="row">
+								<div class="col-lg-6">
+								<p>Total View</p>
+								</div>
+								<div class="col-lg-6">
+									<p style="text-align: right;"><b>{{i.youtube_viewcount}}</b></p>
+								</div>
+							</div>
+							<hr style="margin: 0;margin-bottom: 7px">
+							<div class="row">
+								<div class="col-lg-6">
+									<!-- <button class="btn">Send Invite</button> -->
+								</div>
+								<div class="col-lg-6">
+									<button class="btn" onclick="window.location.href='/youtubeer-channel-details/{{i.youtube_channelid}}'" style="background: #ff9800;float: right;">View Profile</button>
+								</div>
+							</div>
+								
+							
+						</div>
+
+					</div>
+					
+				</div>
+				 
+				{% endfor %}
+
+
+
+
+
+
+
+
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+<style type="text/css">
+	.rightsidebibek{
+		background: #f4f4f4;
+		box-shadow: 0 1px 7px 0 rgba(125,125,125,.5);
+		padding: 20px;
+
+	}
+	.bibekcreatorcard{
+		padding: 20px
+	}
+	.cprolistimage{
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		display: block;
+		margin: auto;
+	}
+	.cretorlistname{
+		text-align: center;margin-top:5px
+	}
+	.cretorlistcat{
+		text-align: center;
+	}
+</style>
+
+
+
+
+
+{% endblock %}

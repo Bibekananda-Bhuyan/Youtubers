@@ -1,0 +1,94 @@
+{% extends "mainwebsite/layout.html" %}
+{% block body %}
+<style type="text/css">
+	.centerpadding{
+		display: block;
+	    margin: auto;
+	    margin-top: 20px;
+	    background-color: #33b5e5;
+	}
+	table{
+		width: 100%
+	}
+	tbody{
+		width: 100%;
+		text-align: center;
+	}
+</style>
+
+<div class="container">
+	<div class="row" style="box-shadow: 0 1px 7px 0 rgba(125,125,125,.5);">
+				
+				<div class="col-md-4 mb-4" style="padding: 20px;background: #f4f4f4">
+					<img src="{{youtubechannel.youtube_profileurl}}" style="width: 100px;height: 100px;border-radius: 50%;display: block;margin: auto;">
+					<h4 style="text-align: center;margin-top:10px ">{{youtubechannel.youtube_channelname}}</h4>
+
+					<a href="/allcreated-campaigns/{{youtubechannel.youtube_channelid}}"><button class="btn btn-flat waves-effect centerpadding">Invite to Campaign</button></a>
+
+					<hr>
+					<h3>About</h3>
+					{% autoescape off %}
+					{{creator.creator_short_descriptions}}
+					{% endautoescape %}
+					<hr>
+					<h3>Popular Brands Promoted</h3>
+					<br>
+					<div class="row">
+				  	 <div class="col-lg-6 col-md-6">
+				  	 	<h5 style="line-height: 35px">Logo Design</h5>
+				  	 </div>
+
+				  	 <div class="col-lg-6 col-md-6">
+				  	 	<button type="button" class="btn btn-primary" style="float: right;">View Video</button>
+				  	 </div>
+				  	 
+				  </div>
+
+				</div>
+
+				<div class="col-md-8 mb-8" style="padding:20px">
+					<h3>Youtube Stastistic</h3>
+					<hr>
+					<table>
+						<tr>
+							<td><h5>{{ statdata.subscriberCount }}</h5><p>Subscriber</p></td>
+							<td><h5>{{ statdata.viewCount }}</h5><p>Views</p></td>
+							<td><h5>4.5</h5><p>Rating</p></td>
+							<td><button type="button" class="btn btn-primary" style="float: right;">View On Youtube</button></td>
+						</tr>
+					</table>
+
+					<hr>
+				  
+					{% for videos in videos %}
+					  
+						<div class="row">
+							<div class="col-lg-4 col-md-12">
+								<iframe width="100%" height="auto" src="https://www.youtube.com/embed/{{videos.snippet.resourceId.videoId}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							</div>
+							<div class="col-lg-8 col-md-12">
+								<h5>{{videos.snippet.title}}</h5>
+
+								 {% for stats in stats %}
+								 	{% if videos.snippet.resourceId.videoId in stats.id %}
+										<p>Views : {{stats.statistics.viewCount}}, Comment : {{stats.statistics.commentCount}} , Likes : {{stats.statistics.likeCount}} , Dislike : {{stats.statistics.dislikeCount}}</p>
+									{% endif %}
+								{% endfor %}
+
+								<p>{{videos.snippet.description}}</p>
+							</div>
+							
+						</div>
+
+					<hr>
+
+
+					{% endfor %}
+
+				</div>
+
+	</div>
+</div>
+
+
+{% endblock %}

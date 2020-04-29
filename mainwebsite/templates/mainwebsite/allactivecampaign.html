@@ -1,0 +1,48 @@
+
+{%extends "mainwebsite/layout.html"%}
+{% block body %}
+
+<div class="container">
+	<form action="/submit-creator-invitaion" method="POST">
+		{% csrf_token %}
+	<div class="row">
+
+		{% if totalcampaigncreated >= 1 %}
+		
+			{% for campainslists in campaigns %}
+				{% if campainslists.is_admin_approved == True %}
+				 	{% if campainslists.is_payment_done == True %}
+			
+						<div class="col-lg-3 col-md-12">
+							<div class="card" style="padding: 40px">
+								<input type="radio" required="" name="campaignid" value="{{campainslists.id}}">{{campainslists.campaign_titel}} <br>
+
+								
+							</div>
+						</div>
+						{%endif%}
+								
+				 	{%endif%}
+
+			{% endfor %}
+			<div class="col-lg-12 col-md-12">
+			<button class="btn primary" type="submit">Next</button>
+			</div>
+		</div>
+
+			
+		<input type="hidden" name="creator" value="{{channel}}">
+
+		{% else %}
+		<li>You Did Not Created Any Campaign.For Accessing Hire Features You Need To Create A Campain.</li>
+		{%endif%}
+
+	</div>
+ </form>
+	
+		
+	
+</div>
+
+
+{% endblock%}

@@ -1,0 +1,35 @@
+{% extends "mainwebsite/layout.html" %}
+{% block body %}
+
+
+
+<div class="container">
+
+
+	{% for campainslists in campaigns %}
+	<div class="col-lg-6 col-md-12">
+		<div class="card" style="display: block;margin: auto;margin-top: 20px;margin-bottom: 20px">
+		   <h5 class="card-header info-color white-text" style="padding: 10px;text-align: left;">
+			  <strong>Project Category : {{campainslists.ads_category}}</strong>
+			</h5>
+
+			 <div class="card-body px-lg-5 pt-0" style="padding: 15px !important;">
+			 	<div class="row">
+				 	<div class="col-lg-12 col-md-12">
+				 		<h5>About the Product/Service:</h5>
+				 		<p>{{campainslists.about_product_or_service}}</p>
+				 		<h5>Budget :  ${{campainslists.project_budget}} </h5>
+				 		<h5>Platform : {{campainslists.platform}}</h5>
+				 		<button class="btn" onclick="window.location.href='/project-details/{{campainslists.id}}'"style="width: auto;float: left;background:#33b5e5">View More</button>
+				 	</div>
+				 	 
+			 	</div>
+
+			 </div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+
+
+{% endblock %}

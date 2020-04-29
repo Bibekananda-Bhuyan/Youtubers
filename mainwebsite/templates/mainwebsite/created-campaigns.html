@@ -1,0 +1,77 @@
+{% extends "mainwebsite/layout.html" %}
+{% block body %}
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://www.jqueryscript.net/demo/Star-Rating-jQuery-Simple-Rater/jquery.rating.js"></script>
+
+
+<div class="container">
+
+
+	{% for campainslists in campaigns %}
+	<div class="col-lg-12 col-md-12">
+		<div class="card" style="display: block;margin: auto;margin-top: 20px;margin-bottom: 20px">
+		   <h5 class="card-header info-color white-text" style="padding: 10px;text-align: left;">
+			  <strong>{{campainslists.campaign_titel}}</strong>
+			</h5>
+
+			 <div class="card-body px-lg-5 pt-0" style="padding: 15px !important;">
+			 	<div class="row">
+				 	<div class="col-lg-8 col-md-12">
+				 		<h5>About the Product/Service:</h5>
+				 		<p>{{campainslists.about_product_or_service}}</p>
+				 		<h5>Budget :  ${{campainslists.project_budget}} </h5>
+				 	</div>
+				 	<div class="col-lg-4 col-md-12" style="border-left: 2px dotted #c1c1c1 !important;">
+				 		<h5>Status : <span style="color: orange">
+				 			
+				 				{{campainslists.status}}
+				 				
+				 			 
+				 		</span>
+
+				 		</h5>
+				 		{% if campainslists.status == "Payment Done" %}
+				 			<p style="color: green">Now You Can Hire Or Select Proposal</p>
+				 		{% endif %}
+				 		 
+				 		<h5>Platform : {{campainslists.platform}}</h5>
+
+				 		{% if campainslists.is_project_rejected == False %}
+				 			<button class="btn" onclick="window.location.href='/brand-campign-details/{{campainslists.id}}'"style="width: auto;float: left;background:#33b5e5">View More</button>
+				 		{%endif%}
+
+				 		{% if campainslists.is_admin_approved != Flase %}
+				 		
+				 			{% if campainslists.is_admin_approved == True %}
+				 				{% if campainslists.is_payment_done == False %}
+				 				
+					 				<a href="/pay/{{campainslists.id}}/{{campainslists.campaign_titel}}"><button class="btn" style="width: auto;float: left;">Paynow</button></a>
+					 				<button class="btn" style="width: auto;float: left; background:red">Cancel</button>
+					 			{%endif%}
+								
+				 			{%endif%}
+
+				 			{% if campainslists.is_project_rejected == True %}
+					 			
+					 			<button class="btn" style="width: auto;float: left; background:red">Campaign Rejected know More</button>
+				 			{%endif%}
+					 		
+				 		{%endif%}
+						
+
+				 	</div>
+			 	</div>
+
+			 </div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+
+
+
+
+{% endblock %}

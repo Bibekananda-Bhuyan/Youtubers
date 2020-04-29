@@ -1,0 +1,96 @@
+
+{% extends "mainwebsite/layout.html" %}
+{% block body %}
+<!-- Material form register -->
+
+<div class="container">
+    {% if formerror %}
+        <div class="alert alert-danger">
+         <strong>{{ formerror }}</strong>
+        </div>
+       
+    {% endif %}
+  <div class="row">
+     
+    <div class="col-lg-6 col-md-12 mehide" style="background-repeat: no-repeat;background-size: contain;background-image: url(../static/mainwebsite/img/creator-signup.png);">
+      
+    </div>
+
+    <div class="col-lg-6 col-md-12">
+      <div class="card"  style="display: block;margin: auto;margin-top: 20px;margin-bottom: 20px">
+
+        <h5 class="card-header info-color white-text text-center py-4">
+            <strong>Creator Registration</strong>
+        </h5>
+
+        <!--Card content-->
+        <div class="card-body px-lg-5 pt-0">
+
+            <!-- Form -->
+            <form class="text-center" style="color: #757575;" action="" method="post" novalidate>
+                {% csrf_token %}
+                 
+                    
+                        <div class="md-form">
+                             {{form.brand_name}}
+                            <label for="materialRegisterFormFirstName">Name</label>
+                        </div>
+                    
+                     
+                
+                <!-- E-mail -->
+                <div class="md-form mt-0">
+                    {{form.brand_email}}
+                    <label for="materialRegisterFormEmail">E-mail</label>
+                </div>
+
+                <!-- Password -->
+                <div class="md-form">
+                   {{form.brand_password}}
+                    <label for="materialRegisterFormPassword">Password</label>
+                    
+                </div>
+
+                <!-- Phone number -->
+                <div class="md-form">
+                    {{form.brand_phoneno}}  
+                    <label for="materialRegisterFormPhone" >Phone number</label>
+                    
+                </div>
+ 
+               
+
+                <!-- Sign up button -->
+                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" style="height: 50px;color: #33b5e5 !important;">Sign Up</button>
+
+              
+                <hr>
+
+                <!-- Terms of service -->
+                <p>By clicking
+                    <em>Sign up</em> you agree to our
+                    <a href="" target="_blank">terms of service</a>
+                    {{form.email_verificationid}} 
+            </form>
+            <!-- Form -->
+
+            </div>
+        </div>
+    </div>
+
+ </div>
+</div>
+
+
+
+
+ 
+
+
+<style type="text/css">
+	body{
+		background-color: #f2f2f2;
+	}
+</style>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+
+
+{% extends "mainwebsite/layout.html" %}
+{% block body%}
+
+
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<div class="card" style="padding: 40px">
+				<h4 style="text-align: center">On Going Projects</h4>
+
+				{% if totalinvitionsrecived >= 1 %}
+					{% for allchampain in allchampains %}
+
+			                <div class="toast" style="opacity:1;max-width:100%;margin-top:20px" role="alert" aria-live="assertive" aria-atomic="true">
+			                    <div class="toast-header">
+			                        <svg class=" rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+			                        focusable="false" role="img">
+			                        <rect fill="#007aff" width="100%" height="100%" /></svg>
+			                        <strong class="mr-auto">Promotion Category : {{allchampain.campaign_type}}</strong>
+			                        <small class="text-muted"><b>Budget : ${{allchampain.project_budget}}</b></small>
+			                    </div>
+			                    <div class="toast-body">
+
+			                   {{allchampain.about_campaign}}
+
+			                    </div>
+			                    <div class="container">
+			                        <div class="row">
+			                             <div class="col-md-4">
+			                             <a href="creator-submit-project/{{allchampain.id}}/{{allchampain.campaign_type}}"><button type="button "  style="" class="btn btn-primary proposalbuttons">Submit Project</button></a>
+			                             </div>
+			                            
+			                        </div>
+			                    </div>
+			                </div>
+
+	                	{% endfor %}
+	                	{% else %}
+	                	<li style="color:red">No Result Found </li>
+	                {% endif %}
+
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+{% endblock %}

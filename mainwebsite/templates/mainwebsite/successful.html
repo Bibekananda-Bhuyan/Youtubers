@@ -1,0 +1,43 @@
+{% extends "mainwebsite/layout.html" %}
+{% block body %}
+
+
+<!-- Material form login -->
+<div class="card" style="width: 410px;display: block;margin: auto;margin-top: 20px;margin-bottom: 20px">
+
+    <h5 class="card-header info-color white-text text-center py-4">
+      <strong>Successful</strong>
+    </h5>
+
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-0">
+
+       <img src="https://www.mapbazar.com/payment/success.gif" style="display: block;margin: auto;width: 100px;height: 100px">
+        {% if messages %}
+        <p style="text-align: center;">
+    
+        {% for message in messages %}
+        {{ message }} 
+        {% endfor %}
+         {% else %}
+         <script type="text/javascript">
+             window.location.href="/"
+         </script>
+        {% endif %}</p>
+        <!-- Sign in button -->
+        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" style="height: 50px;color: #33b5e5 !important;" onclick="window.location.href='/'" type="submit">Back</button>
+
+       
+    </div>
+
+</div>
+<!-- Material form login -->
+
+<style type="text/css">
+	body{
+		background-color: #f2f2f2;
+	}
+</style>
+
+
+{%endblock%}

@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<!-- Material form login -->
+<div class="card" style="width: 410px;display: block;margin: auto;margin-top: 20px;margin-bottom: 20px">
+
+    <h5 class="card-header info-color white-text text-center py-4">
+      <strong>Error</strong>
+    </h5>
+
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-0">
+
+     
+       <img src="https://assets.materialup.com/uploads/f3b7b85b-1d17-43ed-9d70-58511631efed/animated_teaser.gif" style="display: block;margin: auto;width: 250px;height: 200px">
+
+        <p style="text-align: center;">{{msg}}</p>
+        <!-- Sign in button -->
+        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" style="height: 50px;color: #33b5e5 !important;" onclick="window.location.href='{{redirecturl}}'" type="submit">Try Agin</button>
+    </div>
+
+</div>
+<!-- Material form login -->
+
+<style type="text/css">
+	body{
+		background-color: #f2f2f2;
+	}
+</style>
+
+
+{%endblock%}
